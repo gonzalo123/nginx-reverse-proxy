@@ -125,7 +125,3 @@ volumes:
 ```
 
 Now we've changed the hostname of the backend service using the slot number (instead of the default hostname). We also pass a SLOT environment variable to the backend service to distinguish between the replicas, if wee need to do it. Maybe you're asking yourself, why the hell we need to do that? The answer ins simple: Working with legacy code is hard and sometimes we need to do very strange things.
-
-
-
-``
