@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  nginx:
+    image: nginx:production
+    ports:
+      - "8080:80"
+  backend:
+    image: flask:production
+    hostname: "backend.{{.Task.Slot}}"
+    environment:
+      SLOT: "{{.Task.Slot}}"
+      ENVIRONMENT: production
+    volumes:
+      - log:/src/logs
+    deploy:
+      replicas: 3
+    command: gunicorn -c gunicorn.conf.py -w 1 app:app -b 0.0.0.0:5000
+volumes:
+  log:
+    name: 'log-{{.Task.Slot}}'
