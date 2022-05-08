@@ -1,6 +1,6 @@
 ## Using a nginx reverse proxy to serve docker swarm replicas
 
-Sometimes we need to server backend servers behind a nginx reverse proxy. For example when we want to server a Djnago or a Flask application. In this example I want to show how easy is doing that with nginx.
+Sometimes we need to serve backend servers behind a nginx reverse proxy. For example when we want to serve a Djnago or a Flask application. In this example I want to show how easy is doing that with nginx.
 
 We're going to start with a dummy Flask application.
 
@@ -124,4 +124,4 @@ volumes:
     name: 'log-{{.Task.Slot}}'
 ```
 
-Now we've changed the hostname of the backend service using the slot number (instead of the default hostname). We also pass a SLOT environment variable to the backend service to distinguish between the replicas, if wee need to do it. Maybe you're asking yourself, why the hell we need to do that? The answer ins simple: Working with legacy code is hard and sometimes we need to do very stranger things.
+Now we've changed the hostname of the backend service using the slot number (instead of the default hostname). We also pass a SLOT environment variable to the backend service to distinguish between the replicas, if wee need to do that. Maybe you're asking yourself, why the hell we need to do that? The answer ins simple: Working with legacy code is hard and sometimes we need to do very stranger things.
